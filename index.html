@@ -18,7 +18,6 @@
             max-width: 800px;
             margin: auto;
 
-
             text-align: center;
             font-family: system-ui;
             font-weight: 300;
@@ -31,7 +30,6 @@
             /* https://dev.to/madsstoumann/dark-mode-in-3-lines-of-css-and-other-adventures-1ljj */
             background-color: color-mix(in srgb, Canvas, CanvasText 2.5%);
             color: color-mix(in srgb, CanvasText, Canvas 15%);
-
         }
 
         main {
@@ -43,6 +41,14 @@
             position: sticky;
             top: 0;
             z-index: 999;
+        }
+
+        header nav span:hover {
+            color: rgb(87, 0, 0);
+        }
+
+        details {
+            padding-bottom: 10px;
         }
 
         div.hero {
@@ -141,35 +147,30 @@
                 vänner hos [Företagets Namn].
             </p>
 
-            <details>
-                <summary>Hur går det till?</summary>
-                <p>Vi träffas på skjutbanan, säkerhetsutrustning delas ut. Säkerhetsgenomgång, vapenintroduktion,
-                    individuella instruktioner.</p>
-            </details>
+            <h4>Hur går det till?</h4>
+            <p>Vi träffas på skjutbanan, säkerhetsutrustning delas ut. Säkerhetsgenomgång, vapenintroduktion,
+                individuella instruktioner.</p>
 
-            <details>
-                <summary>Vad skjuter man?</summary>
-                <p>Det beror på antal deltagare och budget.</p>
-                <p>Just nu kan vi erbjuda 9×19mm pistol, 9×19mm semiautomatiskt korthållsgevär (AR-9) och 5.56×45mm
-                    semiautomatiskt gevär (AR-15). Pistolerna har öppna riktmedel och gevären har rödpunktsikten.</p>
-                <p>Fler vapen kommer när verksamheten utvecklas.</p>
-            </details>
 
-            <details>
-                <summary>Begränsningar & krav</summary>
-                <p>
-                    Alkohol etc.
-                </p>
-            </details>
-            <details>
-                <summary>Pris</summary>
-                <p>
-                    Meddela din budget, antal deltagare och speciella önskemål så sätter jag ihop ett paket för er.
-                </p>
-                <p>
-                    Alla priser och fakturor innehåller moms och betalning sker via faktura.
-                </p>
-            </details>
+            <h4>Vad skjuter man?</h4>
+            <p>Det beror på antal deltagare och budget.</p>
+            <p>Just nu kan vi erbjuda 9×19mm pistol, 9×19mm semiautomatiskt korthållsgevär (AR-9) och 5.56×45mm
+                semiautomatiskt gevär (AR-15). Pistolerna har öppna riktmedel och gevären har rödpunktsikten.</p>
+            <p>Fler vapen kommer när verksamheten utvecklas.</p>
+
+            <h4>Begränsningar & krav</h4>
+            <p>
+                Alkohol etc.
+            </p>
+
+            <h4>Pris</h4>
+            <p>
+                Meddela din budget, antal deltagare och speciella önskemål så sätter jag ihop ett paket för er.
+            </p>
+            <p>
+                Alla priser och fakturor innehåller moms och betalning sker via faktura.
+            </p>
+
         </section>
 
         <section id="skytteutbildning">
