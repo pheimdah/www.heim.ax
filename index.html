@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="sv-fi">
+
+<head>
+    <title>Heimåt</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Default target for all links on this page -->
+    <base target="_blank">
+
+    <style>
+        /* https://stackoverflow.com/questions/59638500/scrollbar-width-none-not-working-in-firefox-71-to-hide-scrollbars-while-allo */
+        html,
+        body {
+            overflow-y: scroll;
+            scrollbar-width: none;
+        }
+
+        body::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
+
+        /* Override email icon prefix in water.css */
+        a[href^=mailto\:]:before {
+            content: "" !important
+        }
+
+        body {
+            text-align: center;
+            font-family: system-ui;
+            font-weight: 300;
+
+            /* https://dev.to/madsstoumann/dark-mode-in-3-lines-of-css-and-other-adventures-1ljj 
+            background-color: color-mix(in srgb, Canvas, CanvasText 2.5%);
+            color: color-mix(in srgb, CanvasText, Canvas 15%);
+*/
+
+
+        }
+
+        /* https://stackoverflow.com/a/58645785 */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+
+        div.hero {
+            margin-top: 30px;
+            position: relative;
+        }
+
+        div.hero img {
+            width: 100%
+        }
+
+        div.hero h2 {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            border-bottom: none;
+        }
+
+    </style>
+
+    <!-- new.css   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1/new.min.css">
+    -->
+
+    <!-- mvp css 
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    -->
+
+    <!-- picocss 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+-->
+
+    <!-- https://github.com/oxalorg/sakura 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sakura.css/css/sakura.css" type="text/css">
+-->
+    <!-- https://simplecss.org/
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+-->
+
+    <!-- https://github.com/yegor256/tacit 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tacit-css@1.8.1/dist/tacit-css.min.css" />
+-->
+
+    <!-- https://github.com/kognise/water.css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css">
+
+
+    <script type="text/javascript">
+        function hideAllSections() {
+            document.querySelectorAll('section').forEach(function (el) {
+                el.style.display = 'none';
+            });
+        }
+        function showSection(p1) {
+            document.getElementById(p1).style.display = "block";
+        }
+
+        window.onload = function () {
+            hideAllSections();
+        };
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Heimåt</h1>
+        <nav onload="">
+            <a href="#itkonsult" target="_self" onClick="hideAllSections(); showSection('itkonsult')">IT-konsult</a>
+            &bull;
+            <a href="#eventskytte" target="_self" onClick="hideAllSections(); showSection('eventskytte')">Eventskytte</a> &bull;
+            <a href="#skytteutbildning" target="_self" onClick="hideAllSections(); showSection('skytteutbildning')">Skytteutbildning</a>
+            &bull;
+            <a href="#fotografering" target="_self" onClick="hideAllSections(); showSection('fotografering')">Fotografering</a>
+            &bull;
+            <a href="#kontakt" target="_self" onClick="hideAllSections(); ">Kontakt</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="itkonsult">
+            <div class="hero">
+                <img src="heroes/itkonsult.webp" />
+                <h2>IT-konsult</h2>
+            </div>
+
+            <p>
+                <a href="#kontakt">Ta kontakt</a>
+            </p>
+        </section>
+
+
+        <section id="eventskytte">
+
+            <div class="hero">
+                <img src="heroes/skytteevent.webp" />
+                <h2>Eventskytte</h2>
+            </div>
+
+            <p>
+                Heimåt kan nu erbjuda skytteevent för grupper och företag. Oavsett om ni vill stärka teamkänslan, fira
+                en speciell händelse eller bara prova på skytte, har vi något för er.
+            </p>
+            <p>
+                Våra event passar både nybörjare och erfarna skyttar. Med hjälp av våra instruktörer får ni en säker och
+                lärorik upplevelse.
+            </p>
+            <p>
+                Testa din precision och utveckla dina färdigheter i en avslappnad miljö. Upptäck skytte med kollegor och
+                vänner hos [Företagets Namn].
+            </p>
+
+            <details>
+                <summary>Hur går det till?</summary>
+                <p>Vi träffas på skjutbanan, säkerhetsutrustning delas ut. Säkerhetsgenomgång, vapenintroduktion,
+                    individuella instruktioner.</p>
+            </details>
+
+            <details>
+                <summary>Vad skjuter man?</summary>
+                <p>Det beror på antal deltagare och budget.</p>
+                <p>Just nu kan vi erbjuda 9×19mm pistol, 9×19mm semiautomatiskt korthållsgevär (AR-9) och 5.56×45mm
+                    semiautomatiskt gevär (AR-15). Pistolerna har öppna riktmedel och gevären har rödpunktsikten.</p>
+                <p>Fler vapen kommer när verksamheten utvecklas.</p>
+            </details>
+
+            <details>
+                <summary>Begränsningar & krav</summary>
+                <p>
+                    Alkohol etc.
+                </p>
+            </details>
+            <details>
+                <summary>Pris</summary>
+                <p>
+                    Meddela din budget, antal deltagare och speciella önskemål så sätter jag ihop ett paket för er.
+                </p>
+                <p>
+                    Alla priser och fakturor innehåller moms och betalning sker via faktura.
+                </p>
+            </details>
+        </section>
+
+        <section id="skytteutbildning">
+
+            <div class="hero">
+                <img src="heroes/skytteutbildning.webp" />
+                <h2>Skytteutbildning</h2>
+            </div>
+            <p>
+                <a href="#kontakt">Ta kontakt</a>
+            </p>
+        </section>
+
+        <section id="fotografering">
+
+            <div class="hero">
+                <img src="heroes/fotografering.webp" />
+                <h2>Fotografering</h2>
+            </div>
+            <p>
+                <a href="#kontakt">Ta kontakt</a>
+            </p>
+        </section>
+    </main>
+
+
+
+    <footer>
+
+        <h2 id="kontakt">Kontakt</h2>
+        <address>
+            Patrik Heimdahl
+            <br />
+
+            <a href="mailto:patrik@heim.ax">E-post</a> &bull;
+            <a href="https://www.facebook.com/patrik.heimdahl">Facebook</a> &bull;
+            <a href="https://www.linkedin.com/in/heimdahl">LinkedIn</a> &bull;
+            <a href="https://signal.me/#eu/aaX3egCiRZYpeBNwcPjMJ67jrK1vypA_J5wwnzb_2oa4wY0gxpxGvqm5yqlJm34i">Signal</a>
+            <br />
+
+            <br />
+            FO-nummer: 3090657-5
+        </address>
+        <p><small>© Copyright 2025 Heimåt<br />Site handcrafted on 🇦🇽</small></p>
+
+    </footer>
+
+</body>
+
+</html>
