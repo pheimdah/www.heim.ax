@@ -15,29 +15,27 @@
         body {
             overflow-y: scroll;
             scrollbar-width: none;
-        }
+            max-width: 800px;
+            margin: auto;
 
-        body::-webkit-scrollbar {
-            width: 0;
-            height: 0;
-        }
 
-        /* Override email icon prefix in water.css */
-        a[href^=mailto\:]:before {
-            content: "" !important
-        }
-
-        body {
             text-align: center;
             font-family: system-ui;
             font-weight: 300;
 
-            /* https://dev.to/madsstoumann/dark-mode-in-3-lines-of-css-and-other-adventures-1ljj 
+            /* https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/ */
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+
+            /* https://dev.to/madsstoumann/dark-mode-in-3-lines-of-css-and-other-adventures-1ljj */
             background-color: color-mix(in srgb, Canvas, CanvasText 2.5%);
             color: color-mix(in srgb, CanvasText, Canvas 15%);
-*/
 
+        }
 
+        main {
+            flex: 1;
         }
 
         /* https://stackoverflow.com/a/58645785 */
@@ -46,7 +44,6 @@
             top: 0;
             z-index: 999;
         }
-
 
         div.hero {
             margin-top: 30px;
@@ -66,34 +63,11 @@
             border-bottom: none;
         }
 
+        footer {
+            border-top: 1px solid #dbdbdb;
+            color: #70777f;
+        }
     </style>
-
-    <!-- new.css   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1/new.min.css">
-    -->
-
-    <!-- mvp css 
-    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
-    -->
-
-    <!-- picocss 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
--->
-
-    <!-- https://github.com/oxalorg/sakura 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sakura.css/css/sakura.css" type="text/css">
--->
-    <!-- https://simplecss.org/
-    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
--->
-
-    <!-- https://github.com/yegor256/tacit 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tacit-css@1.8.1/dist/tacit-css.min.css" />
--->
-
-    <!-- https://github.com/kognise/water.css -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css">
-
 
     <script type="text/javascript">
         function hideAllSections() {
@@ -102,11 +76,25 @@
             });
         }
         function showSection(p1) {
+            hideAllSections();
             document.getElementById(p1).style.display = "block";
+
+            // Replace 's' param on click
+            var queryParams = new URLSearchParams(window.location.search);
+            queryParams.set("s", p1);
+            history.replaceState(null, null, "?" + queryParams.toString());
         }
 
         window.onload = function () {
             hideAllSections();
+
+            // Retrieve 's' param on load
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const section = urlParams.get('s')
+            if (section != null) {
+                showSection(section);
+            }
         };
     </script>
 </head>
@@ -114,30 +102,24 @@
 <body>
     <header>
         <h1>Heimåt</h1>
-        <nav onload="">
-            <a href="#itkonsult" target="_self" onClick="hideAllSections(); showSection('itkonsult')">IT-konsult</a>
-            &bull;
-            <a href="#eventskytte" target="_self" onClick="hideAllSections(); showSection('eventskytte')">Eventskytte</a> &bull;
-            <a href="#skytteutbildning" target="_self" onClick="hideAllSections(); showSection('skytteutbildning')">Skytteutbildning</a>
-            &bull;
-            <a href="#fotografering" target="_self" onClick="hideAllSections(); showSection('fotografering')">Fotografering</a>
-            &bull;
-            <a href="#kontakt" target="_self" onClick="hideAllSections(); ">Kontakt</a>
+        <nav>
+            <span onClick="showSection('it')">IT-konsult</span>&nbsp;&bull;
+            <span onClick="showSection('eventskytte')">Eventskytte</span>&nbsp;&bull;
+            <span onClick="showSection('skytteutbildning')">Skytteutbildning</span>&nbsp;&bull;
+            <span onClick="showSection('fotografering')">Fotografering</span>&nbsp;&bull;
+            <span onClick="showSection('kontakt')">Kontakt</span>
         </nav>
     </header>
 
     <main>
-        <section id="itkonsult">
+        <section id="it">
             <div class="hero">
                 <img src="heroes/itkonsult.webp" />
                 <h2>IT-konsult</h2>
             </div>
-
-            <p>
-                <a href="#kontakt">Ta kontakt</a>
+            <p><a href="https://www.linkedin.com/in/heimdahl">LinkedIn</a>
             </p>
         </section>
-
 
         <section id="eventskytte">
 
@@ -196,9 +178,7 @@
                 <img src="heroes/skytteutbildning.webp" />
                 <h2>Skytteutbildning</h2>
             </div>
-            <p>
-                <a href="#kontakt">Ta kontakt</a>
-            </p>
+            <p>Kan jag hjälpa dig med något? <span class="link" onClick="showSection('kontakt')">Ta kontakt!</span></p>
         </section>
 
         <section id="fotografering">
@@ -207,32 +187,24 @@
                 <img src="heroes/fotografering.webp" />
                 <h2>Fotografering</h2>
             </div>
-            <p>
-                <a href="#kontakt">Ta kontakt</a>
-            </p>
+            <p><a href="https://www.instagram.com/avbildningar">Instagram</a></p>
+        </section>
+        <section id="kontakt">
+
+            <img src="profile-200px.webp" />
+            <h3>Patrik Heimdahl</h3>
+            <address>
+                <a href="mailto:patrik@heim.ax">E-post</a> &bull;
+                <a href="https://www.facebook.com/patrik.heimdahl">Facebook</a> &bull;
+                <a
+                    href="https://signal.me/#eu/aaX3egCiRZYpeBNwcPjMJ67jrK1vypA_J5wwnzb_2oa4wY0gxpxGvqm5yqlJm34i">Signal</a>
+
+            </address>
         </section>
     </main>
 
-
-
     <footer>
-
-        <h2 id="kontakt">Kontakt</h2>
-        <address>
-            Patrik Heimdahl
-            <br />
-
-            <a href="mailto:patrik@heim.ax">E-post</a> &bull;
-            <a href="https://www.facebook.com/patrik.heimdahl">Facebook</a> &bull;
-            <a href="https://www.linkedin.com/in/heimdahl">LinkedIn</a> &bull;
-            <a href="https://signal.me/#eu/aaX3egCiRZYpeBNwcPjMJ67jrK1vypA_J5wwnzb_2oa4wY0gxpxGvqm5yqlJm34i">Signal</a>
-            <br />
-
-            <br />
-            FO-nummer: 3090657-5
-        </address>
-        <p><small>© Copyright 2025 Heimåt<br />Site handcrafted on 🇦🇽</small></p>
-
+        <p><small>© Copyright 2025 Heimåt, FO-nummer 3090657-5</small></p>
     </footer>
 
 </body>
