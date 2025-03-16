@@ -43,10 +43,6 @@
             z-index: 999;
         }
 
-        header nav span:hover {
-            color: rgb(87, 0, 0);
-        }
-
         details {
             padding-bottom: 10px;
         }
@@ -67,6 +63,10 @@
             transform: translate(-50%, -50%);
             color: white;
             border-bottom: none;
+        }
+
+        span.link:hover {
+            color: rgb(87, 0, 0);
         }
 
         footer {
@@ -109,11 +109,11 @@
     <header>
         <h1>Heimåt</h1>
         <nav>
-            <span onClick="showSection('it')">IT-konsult</span>&nbsp;&bull;
-            <span onClick="showSection('eventskytte')">Eventskytte</span>&nbsp;&bull;
-            <span onClick="showSection('skytteutbildning')">Skytteutbildning</span>&nbsp;&bull;
-            <span onClick="showSection('fotografering')">Fotografering</span>&nbsp;&bull;
-            <span onClick="showSection('kontakt')">Kontakt</span>
+            <span class="link" onClick="showSection('it')">IT</span>&nbsp;&bull;
+            <span class="link" onClick="showSection('eventskytte')">Eventskytte</span>&nbsp;&bull;
+            <span class="link" onClick="showSection('skytteutbildning')">Skytteutbildning</span>&nbsp;&bull;
+            <span class="link" onClick="showSection('fotografering')">Foto</span>&nbsp;&bull;
+            <span class="link" onClick="showSection('kontakt')">Kontakt</span>
         </nav>
     </header>
 
@@ -121,7 +121,7 @@
         <section id="it">
             <div class="hero">
                 <img src="heroes/itkonsult.webp" />
-                <h2>IT-konsult</h2>
+                <h2>IT-konsulttjänster</h2>
             </div>
             <p><a href="https://www.linkedin.com/in/heimdahl">LinkedIn</a>
             </p>
