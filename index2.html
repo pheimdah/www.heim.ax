@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="sv-fi">
+
+<head>
+    <title>Heimåt</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Default target for all links on this page -->
+    <base target="_blank">
+
+    <style>
+        /* https://stackoverflow.com/questions/59638500/scrollbar-width-none-not-working-in-firefox-71-to-hide-scrollbars-while-allo */
+        html,
+        body {
+            overflow-y: scroll;
+            scrollbar-width: none;
+            max-width: 800px;
+            margin: auto;
+
+            text-align: center;
+            font-family: system-ui;
+            font-weight: 300;
+
+            /* https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/ */
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+
+            /* https://dev.to/madsstoumann/dark-mode-in-3-lines-of-css-and-other-adventures-1ljj */
+            background-color: color-mix(in srgb, Canvas, CanvasText 2.5%);
+            color: color-mix(in srgb, CanvasText, Canvas 15%);
+            color-scheme: light dark;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        /* https://stackoverflow.com/a/58645785 */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        details {
+            padding-bottom: 10px;
+        }
+
+        section {
+            margin-top: 30px;
+        }
+
+        img.hero {
+            width: 100%;
+        }
+
+        div.hero h2 {
+            /*    position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            */
+            color: white;
+        }
+
+        /* make menu items behave more like links */
+        span.link {
+            cursor: pointer;
+        }
+
+        span.link:hover,
+        a:hover {
+            color: rgb(87, 0, 0);
+        }
+
+        a:link {
+            color: inherit;
+        }
+
+        a:active {
+            color: inherit;
+        }
+
+        a:visited {
+            color: inherit;
+        }
+
+        footer {
+            border-top: 1px solid #dbdbdb;
+            color: #70777f;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function hideAllContentSections() {
+            document.querySelectorAll('section').forEach(function (el) {
+                el.style.display = 'none';
+            });
+        }
+
+        function menuItemClick(p1) {
+
+            showSection(p1);
+            displayNav(true);
+
+            // Set/replace 's' param on click
+            var queryParams = new URLSearchParams(window.location.search);
+            queryParams.set("s", p1);
+            history.replaceState(null, null, "?" + queryParams.toString());
+        }
+
+        function showSection(p1) {
+            hideAllContentSections();
+            document.getElementById(p1).style.display = "block";
+        }
+
+        function displayNav(display) {
+            document.querySelectorAll('nav').forEach(function (el) {
+                el.style.display = (display == true ? 'block' : 'none');
+            });
+        }
+
+        window.onload = function () {
+            hideAllContentSections();
+
+            // Retrieve 's' param on load
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const section = urlParams.get('s')
+            if (section != null) {
+                showSection(section);
+                displayNav(true);
+            }
+            else {
+                showSection('start');
+                displayNav(false);
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Heimåt</h1>
+        <nav>
+            <span class="link" onClick="menuItemClick('it')">IT</span>&nbsp;&bull;
+            <span class="link" onClick="menuItemClick('eventskytte')">Eventskytte</span>&nbsp;&bull;
+            <span class="link" onClick="menuItemClick('skytteutbildning')">Skytteutbildning</span>&nbsp;&bull;
+            <span class="link" onClick="menuItemClick('fotografering')">Foto</span>&nbsp;&bull;
+            <span class="link" onClick="menuItemClick('kontakt')">Kontakt</span>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Start page menu -->
+        <section id="start">
+            <p> <span class="link" onClick="menuItemClick('it')">IT</span></p>
+            <p> <span class="link" onClick="menuItemClick('eventskytte')">Eventskytte</span></p>
+            <p> <span class="link" onClick="menuItemClick('skytteutbildning')">Skytteutbildning</span></p>
+            <p> <span class="link" onClick="menuItemClick('fotografering')">Foto</span></p>
+            <p><span class="link" onClick="menuItemClick('kontakt')">Kontakt</span></p>
+        </section>
+
+        <section id="it">
+            <img class="hero" src="heroes/itkonsult.webp" />
+            <h2>IT-konsulttjänster</h2>
+            <p><a href="https://www.linkedin.com/in/heimdahl">LinkedIn</a>
+            </p>
+        </section>
+
+        <section id="eventskytte">
+            <img class="hero" src="heroes/skytteevent.webp" />
+            <h2>Eventskytte</h2>
+
+            <p>Dags för företagsevent eller möhippa/svensexa? Kom ut till skjutbanan, vetja!</p>
+
+            <h4>Hur går det till?</h4>
+            <p>Vi träffas på skjutbanan och inleder med en säkerhetsgenomgång. Sedan hålls en introduktion till vapnen och deras funktionssätt. Efter det delas säkerhetsutrustning ut och själva skyttet påbörjas.</p>
+
+            <h4>Vad skjuter man?</h4>
+            <p>Det beror på antal deltagare och budget.</p>
+            <p>Just nu kan vi erbjuda 9×19mm pistol, 9×19mm semiautomatiskt korthållsgevär (AR-9) och 5.56×45mm semiautomatiskt gevär (AR-15). Pistolerna har öppna riktmedel och gevären har rödpunktsikten.</p>
+            <p>Vapenmodellerna och dess tilläggsutrustning har i dag ett starkt fokus på effektivitet i sportskytte. I takt med att verksamheten utvecklas hoppas vi kunna erbjuda fler vapen med större variation.</p>
+
+            <h4>Begränsningar & krav</h4>
+            <p>Nolltolerans gällande alkohol och droger. Personer som misstänks vara påverkade deltar ej i skyttet.</p>
+            <p>Personer som uppvisar dåligt omdöme och bedöms utgöra en fara för övriga deltar ej i skyttet.</p>
+
+            <h4>Pris</h4>
+            <p>Meddela din budget, antal deltagare och speciella önskemål så sätter jag ihop ett paket för er.</p>
+            <p>Alla priser och fakturor innehåller moms och betalning sker via faktura.</p>
+        </section>
+
+        <section id="skytteutbildning">
+            <img class="hero" src="heroes/skytteutbildning.webp" />
+            <h2>Skytteutbildning</h2>
+            <p>Är du redan jägare eller sportskytt? Kanske du är intresserad av att börja med dynamiskt skytte?</p>
+            <p>Hör av dig så ser vi om jag kan hjälpa dig med något!</p>
+        </section>
+
+        <section id="fotografering">
+            <img class="hero" src="heroes/fotografering.webp" />
+            <h2>Fotografering</h2>
+            <p><a href="https://www.instagram.com/avbildningar">Instagram</a></p>
+        </section>
+
+        <section id="kontakt">
+            <img src="profile-200px.webp" />
+            <h3>Patrik Heimdahl</h3>
+            <address>
+                <a href="mailto:patrik@heim.ax">E-post</a> &bull;
+                <a href="https://www.facebook.com/patrik.heimdahl">Facebook</a> &bull;
+                <a href="https://signal.me/#eu/aaX3egCiRZYpeBNwcPjMJ67jrK1vypA_J5wwnzb_2oa4wY0gxpxGvqm5yqlJm34i">Signal</a>
+            </address>
+        </section>
+    </main>
+
+    <footer>
+        <p><small>© Copyright 2025 Heimåt, FO-nummer 3090657-5</small></p>
+    </footer>
+
+</body>
+
+</html>
