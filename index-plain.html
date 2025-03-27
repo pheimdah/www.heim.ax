@@ -10,25 +10,37 @@
     <base target="_blank">
 
     <style>
-        /* https://stackoverflow.com/questions/59638500/scrollbar-width-none-not-working-in-firefox-71-to-hide-scrollbars-while-allo */
+        /* Color palette: https://github.com/NLKNguyen/papercolor-theme */
+        :root {
+            --color-bg: #fafafa;
+            --color-text: #3e3f47;
+
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-bg: #181818;
+                --color-text: #a2aab5;
+            }
+        }
+
         html,
         body {
-
+            background-color: var(--color-bg);
+            color: var(--color-text);
 
             font-family: system-ui;
             font-weight: 300;
+            /*  font-size: 1.25em;
+            line-height: 1.4;*/
+        }
 
-            /* https://dev.to/madsstoumann/dark-mode-in-3-lines-of-css-and-other-adventures-1ljj */
-            background-color: color-mix(in srgb, Canvas, CanvasText 2.5%);
-            color: color-mix(in srgb, CanvasText, Canvas 15%);
-            color-scheme: light dark;
-        }
         article {
-            scroll-snap-type: y mandatory;
+            padding-left: 20px;
         }
+
         section {
-            
-  scroll-snap-align: start;
+            padding-left: 40px;
         }
     </style>
 
@@ -41,13 +53,14 @@
             <details>
                 <summary>Webbplatsens innehåll</summary>
                 <ul>
-                    <li><a href="tjanster">Tjänster</a></li>
-                    <ul>
-                        <li><a href="#itkonsult">IT-konsult</a></li>
-                        <li><a href="#eventskytte">Eventskytte</a></li>
-                        <li><a href="#skytteutbildning">Skytteutbildning</a></li>
-                        <li><a href="#foto">Fotografering</a></li>
-                    </ul>
+                    <li><a href="tjanster">Tjänster</a>
+                        <ul>
+                            <li><a href="#itkonsult">IT-konsult</a></li>
+                            <li><a href="#eventskytte">Eventskytte</a></li>
+                            <li><a href="#skytteutbildning">Skytteutbildning</a></li>
+                            <li><a href="#foto">Fotografering</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#kontakt">Kontakt</a></li>
                 </ul>
             </details>
@@ -60,22 +73,19 @@
     <main>
         <h2>Tjänster</h2>
         <article id="itkonsult">
-            <section>
-                <h3>IT-konsult</h3>
-                    <p><cite> IT generalist with experience in designing, implementing and maintaining 24/7 systems in the financial sector.IT generalist with experience in designing, implementing and maintaining 24/7 systems in the financial sector.</cite></p>
-                    <p><pre>Architecture Cloud DevOps SecOps SRE</pre></p>
-                    <p>Se mitt CV på <a href="https://www.linkedin.com/in/heimdahl">LinkedIn</a></p>
-                    <p><a href="#kontakt">Ta kontakt</a> om jag kan hjälpa er med något!</p>
-            </section>
+            <h3>IT-konsult</h3>
+            <p><cite> IT generalist with experience in designing, implementing and maintaining 24/7 systems in the financial sector.IT generalist with experience in designing, implementing and maintaining 24/7 systems in the financial sector.</cite></p>
+            <pre>Architecture Cloud DevOps SecOps SRE</pre>
+            <p>Se mitt CV på <a href="https://www.linkedin.com/in/heimdahl">LinkedIn</a></p>
+            <p><a href="#kontakt">Ta kontakt</a> om jag kan hjälpa er med något!</p>
+
         </article>
 
         <article id="eventskytte">
 
-            <section>
-                <h3>Eventskytte</h3>
-                <p>Heimåt kan nu erbjuda skytteutbildning och eventskytte!</p>
-                <p>Dags för företagsevent eller möhippa/svensexa? Kom ut till skjutbanan, vetja!</p>
-            </section>
+            <h3>Eventskytte</h3>
+            <p>Heimåt kan nu erbjuda skytteutbildning och eventskytte!</p>
+            <p>Dags för företagsevent eller möhippa/svensexa? Kom ut till skjutbanan, vetja!</p>
 
             <section>
                 <h4>Hur går det till?</h4>
@@ -111,11 +121,9 @@
         </article>
 
         <article id="skytteutbildning">
-            <section>
-                <h3>Skytteutbildning</h3>
-                <p>Är du redan jägare eller sportskytt? Kanske du är intresserad av att börja med dynamiskt skytte?</p>
-                <p>Hör av dig så ser vi om jag kan hjälpa dig med något!</p>
-            </section>
+            <h3>Skytteutbildning</h3>
+            <p>Är du redan jägare eller sportskytt? Kanske du är intresserad av att börja med dynamiskt skytte?</p>
+            <p>Hör av dig så ser vi om jag kan hjälpa dig med något!</p>
         </article>
 
         <article id="foto">
@@ -125,9 +133,14 @@
         </article>
 
         <article id="kontakt">
-            <h2>Patrik Heimdahl</h2>
-            <img src="profile-200px.webp" loading="lazy" alt="Profilbild" />
+
+            <h2>Kontakt</h2>
+            <figure>
+                <img src="profile-200px.webp" loading="lazy" alt="Profilbild" />
+                <figcaption>Patrik Heimdahl</figcaption>
+            </figure>
             <address>
+                Du når mig på:
                 <ul>
                     <li><a href="mailto:patrik@heim.ax">E-post</a></li>
                     <li><a href="https://www.facebook.com/patrik.heimdahl">Facebook</a></li>
@@ -141,7 +154,7 @@
     <hr>
 
     <footer>
-        <p><small>&copy Copyright 2025 Heimåt, FO-nummer 3090657-5</small></p>
+        <p><small>&copy; Copyright 2025 Heimåt, FO-nummer 3090657-5</small></p>
     </footer>
 
 </body>
