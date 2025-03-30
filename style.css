@@ -1,0 +1,16 @@
+
+html,
+body {
+    background-color: Canvas;
+    color: CanvasText;
+    color-scheme: light dark;
+
+    font-family: system-ui;
+    /* font-weight: 300; */
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+img.hero {
+    width: 100%;
+}

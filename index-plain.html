@@ -1,143 +1,34 @@
 <!DOCTYPE html>
-<html lang="sv-fi">
+<html lang="sv-FI">
 
 <head>
     <title>Heimåt</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Default target for all links on this page -->
-    <base target="_blank">
-
-    <style>
-        :root {
-            --color-bg: #fdfdfd;
-            --color-text: #3e3f47;
-
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --color-bg: #181818;
-                --color-text: #a2aab5;
-            }
-        }
-
-        html,
-        body {
-            background-color: var(--color-bg);
-            color: var(--color-text);
-
-            font-family: system-ui;
-            /* font-weight: 300; */
-            font-size: 1em;
-            line-height: 1.5;
-
-    </style>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <header>
         <h1>Heimåt</h1>
         <nav>
-            <details>
-                <summary>Webbplatsens innehåll</summary>
-                <ul>
-                    <li><a href="#tjanster">Tjänster</a>
-                        <ul>
-                            <li><a href="#itkonsult">IT-konsult</a></li>
-                            <li><a href="#eventskytte">Eventskytte</a></li>
-                            <li><a href="#skytteutbildning">Skytteutbildning</a></li>
-                            <li><a href="#foto">Fotografering</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#kontakt">Kontakt</a></li>
-                </ul>
-            </details>
+            <h2>Webbplatsens innehåll</h2>
+            <ul>
+                <li>Tjänster
+                    <ul>
+                        <li><a href="it.html">IT-konsult</a></li>
+                        <li><a href="eventskytte.html">Eventskytte</a></li>
+                        <li><a href="skytteutbildning.html">Skytteutbildning</a></li>
+                        <li><a href="foto.html">Fotografering</a></li>
+                    </ul>
+                </li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
         </nav>
     </header>
 
-    <!-- Break between the page header and main content -->
-    <hr>
-
-    <main>
-        <h2 id="tjanster">Tjänster&nbsp;<a href="#tjanster">&raquo;</a></h2>
-
-        <!-- IT-konsult -->
-        <article>
-            <h3 id="itkonsult">IT-konsult&nbsp;<a href="#itkonsult">&raquo;</a></h3>
-            <p><cite> IT generalist with experience in designing, implementing and maintaining 24/7 systems in the financial sector.</cite></p>
-            <pre>Architecture Cloud DevOps SecOps SRE</pre>
-            <p>Tillgänglig för små och stora projekt på Åland och på distans.</p>
-            <p>Se mitt CV på <a href="https://www.linkedin.com/in/heimdahl">LinkedIn</a> och <a href="#kontakt">ta kontakt</a> om jag kan hjälpa er med något!</p>
-        </article>
-
-        <!-- Eventskytte -->
-        <article>
-            <h3 id="eventskytte">Eventskytte&nbsp;<a href="#eventskytte">&raquo;</a></h3>
-            <p>Heimåt kan nu erbjuda skytteutbildning och eventskytte!</p>
-            <p>Dags för företagsevent eller möhippa/svensexa? Kom ut till skjutbanan, vetja!</p>
-
-            <section>
-                <h4>Hur går det till?</h4>
-                <p>Vi träffas på skjutbanan och inleder med en säkerhetsgenomgång och en introduktion till de vapen ni ska skjuta.</p>
-                <p>Efter det delas säkerhetsutrustning ut och själva skyttet påbörjas.</p>
-                <p>När alla har fått prova på alla vapen kör vi en tävling för att utse gruppens bästa skytt.</p>
-            </section>
-
-            <section>
-                <h4>Vad skjuter man?</h4>
-                <p>Just nu kan vi erbjuda:
-                <ul>
-                    <li><b>Glock</b> Semiautomatisk pistol med polymerstomme i kaliber 9×19 mm</li>
-                    <li><b>CZ</b> Semiautomatisk pistol med stålstomme i kaliber 9×19 mm</li>
-                    <li><b>AR-9</b> Semiautomatiskt korthållsgevär i kaliber 9×19 mm</li>
-                    <li><b>AR-15</b> Semiautomatiskt gevär i kaliber 5.56×45 mm</li>
-                </ul>
-                <p>Pistolerna har öppna riktmedel och gevären har rödpunkt- och holografiska sikten.</p>
-            </section>
-
-            <section>
-                <h4>Begränsningar & krav</h4>
-                <p>Nolltolerans gällande alkohol och droger. Personer som misstänks vara påverkade deltar ej i skyttet.</p>
-                <p>Personer som uppvisar dåligt omdöme och bedöms utgöra en fara för sig själva eller övriga deltar ej i skyttet.</p>
-            </section>
-
-            <section>
-                <h4>Pris</h4>
-                <p>Meddela er budget, antal deltagare och speciella önskemål så sätter jag ihop ett paket för er.</p>
-                <p>Alla priser och fakturor innehåller moms och betalning sker via faktura.</p>
-            </section>
-        </article>
-
-        <!-- Skytteutbildning -->
-        <article>
-            <h3 id="skytteutbildning">Skytteutbildning&nbsp;<a href="#skytteutbildning">&raquo;</a></h3>
-            <p>Är du redan jägare eller sportskytt? Kanske du är intresserad av att börja med dynamiskt skytte?</p>
-            <p>Hör av dig så ser vi om jag kan hjälpa dig med något!</p>
-        </article>
-
-        <!-- Fotografering -->
-        <article>
-            <h3 id="foto">Fotografering&nbsp;<a href="#foto">&raquo;</a></h3>
-            <p>Tillgänglig för små projekt på Åland.</p>
-            <p>Se mina fotografier på <a href="https://www.instagram.com/avbildningar">Instagram</a>.</p>
-        </article>
-
-        <!-- Kontakt -->
-        <h2 id="kontakt">Kontakt&nbsp;<a href="#kontakt">&raquo;</a></h2>
-        <address>
-            Du når mig på:
-            <ul>
-                <li><a href="mailto:patrik@heim.ax">E-post</a></li>
-                <li><a href="https://www.facebook.com/patrik.heimdahl">Facebook</a></li>
-                <li><a href="https://signal.me/#eu/aaX3egCiRZYpeBNwcPjMJ67jrK1vypA_J5wwnzb_2oa4wY0gxpxGvqm5yqlJm34i">Signal</a></li>
-            </ul>
-        </address>
-    </main>
-
-    <!-- Break between main content and footer -->
+    <!-- Break between the page header and footer -->
     <hr>
 
     <footer>
